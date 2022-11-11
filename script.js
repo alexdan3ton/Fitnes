@@ -102,29 +102,29 @@ tabsParent.addEventListener("click", (event) => {
 
 //_________________________
 
-const btnAn = document.querySelector(".btnAn");
-let timeId;
-let i = 0;
+// const btnAn = document.querySelector(".btnAn");
+// let timeId;
+// let i = 0;
 
-function myAnimation() {
-  const element = document.querySelector(".box");
-  let pos = 0;
+// function myAnimation() {
+//   const element = document.querySelector(".box");
+//   let pos = 0;
 
-  const id = setInterval(frame, 10);
-  function frame() {
-    if (pos === 800) {
-      clearInterval();
-    } else {
-      pos += 1;
-      element.style.top = pos + "px";
-      element.style.left = pos + "px";
-    }
-  }
-}
+//   const id = setInterval(frame, 10);
+//   function frame() {
+//     if (pos === 800) {
+//       clearInterval();
+//     } else {
+//       pos += 1;
+//       element.style.top = pos + "px";
+//       element.style.left = pos + "px";
+//     }
+//   }
+// }
 
-btnAn.addEventListener("click", (event) => {
-  myAnimation();
-});
+// btnAn.addEventListener("click", (event) => {
+//   myAnimation();
+// });
 
 // ------------------------------------------------------------------
 
@@ -136,7 +136,88 @@ btnAn.addEventListener("click", (event) => {
 // let dateDiv = document.createElement("div");
 // dateDiv.innerHTML = `${timeMSK}`;
 // tabsParent.appendChild(dateDiv);
+document.getElementById("current_date_time_block2").innerHTML = new Date();
 
 setInterval(function () {
   document.getElementById("current_date_time_block2").innerHTML = new Date();
 }, 1000);
+
+//-----------------До начала лета-----------------------------------
+
+const deadLine = "2023-06-01";
+
+function getTimeout(endtime) {
+  const t = Date.parse(endtime) - Date.parse(new Date());
+  const days = Math.floor(t / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((t / 1000 / 60) % 60);
+  const second = Math.floor((t / 1000) % 60);
+
+  return {
+    total: t,
+    days: days,
+    hours: hours,
+    minutes: minutes,
+    second: second,
+  };
+}
+
+function setClock(selector, endtime) {
+  const timer = document.querySelector(selector);
+  const days = timer.querySelector("#days");
+  const hours = timer.querySelector("#hours");
+  const minutes = timer.querySelector("#minutes");
+  const second = timer.querySelector("#seconds");
+  const timeInterval = setInterval(updateClock, 1000);
+
+  updateClock();
+
+  function updateClock() {
+    const t = getTimeout(endtime);
+
+    days.innerHTML = t.days;
+    hours.innerHTML = t.hours;
+    minutes.innerHTML = t.minutes;
+    second.innerHTML = t.second;
+
+    if (t.total < 0) {
+      clearInterval(timeInterval);
+    }
+  }
+}
+
+setClock(".timer", deadLine);
+
+// -----------------------------Окно обратной связи-------------------------
+
+//Modal
+
+const btnClose = document.querySelector(".modal__close");
+const modalBox = document.querySelector(".modal");
+const inputInfo = modalBox.querySelectorAll(".modal__input");
+const btnCall = modalBox.querySelector(".btn_dark");
+const btnPlsCall = document.querySelector("[data-model]");
+const modalWindow = document.querySelector(".modal__dialog");
+const modalContent = document.querySelector(".modal__content");
+
+//Закрыть модальное окно
+btnClose.addEventListener("click", () => {
+  modalBox.style.display = "none";
+});
+
+modalBox.addEventListener("click", (event) => {
+  if (event.target === modalBox) {
+    modalBox.style.display = "none";
+  }
+});
+
+//Получить данные, по нажатию кнопки
+
+btnCall.addEventListener("click", (event) => {
+  event.preventDefault();
+  console.log(inputInfo.values);
+});
+
+btnPlsCall.addEventListener("click", () => {
+  modalBox.style.display = "block";
+});
