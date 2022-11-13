@@ -58,8 +58,193 @@
 // btn.classList.add("blue");
 // wrapper.append(btn);
 
-// const tabsParent = document.querySelector(".buttons");
+//--------------------------Функции конструкторы------------------------------------
+// function User(name, id) {
+//   this.name = name;
+//   this.id = id;
+//   this.human = true;
+//   this.hello = function () {
+//     console.log(`Hello ${this.name}`);
+//   };
+// }
+// // Добавление нового метода в прототип
+// User.prototype.exit = function () {
+//   console.log(`User ${this.name} exit`);
+// };
+// const ivan = new User("Ivan", 28);
+// ivan.hello();
+// console.log(ivan);
+// ivan.exit();
 
+// --------------------------------------Контекст вызова функции. this---------------
+// function showThis(a,b) {
+//   console.log(this);
+//   function sum(){
+//     console.log(this);
+//     return a + b;
+//   }
+//   console.log(sum())
+// }
+// showThis(4,5);
+
+// 1) с use strict веренет window, без - undefined. В обычной функции.
+
+// const obj = {
+//   a:20,
+//   b: 15,
+//   sum: function() {
+//     console.log(this);
+//   }
+// }
+
+// console.log(obj.sum)
+// 2) если используем метод внутри объекта, то контекст вызова всегда будет ссылаться
+// на этот объект
+
+// function User(name, id) {
+//     this.name = name;
+//     this.id = id;
+//     this.human = true; }
+
+//     let ivan = new User('Ivan', 23);
+
+//3) this в констуркторах и классах - это новый экземпляр объекта
+
+// finction sayName(surname){
+//   console.log(this);
+//   console.log(this.name + surname);
+// }
+
+// const user = {
+//   name: 'John'
+// }
+
+// sayName.call(user, 'Smith');
+// sayName.apply(user, ['Smith']);
+
+// function count(num){
+//   return this*num;
+// }
+
+// const double = count.bind(2);
+// console.log(double(3))
+
+// 4) Ручная привязка this: call, apply, bind
+
+//------------------------------------Class--------------------------------------
+// class Rectangle {
+//   constructor(height, width) {
+//     this.height = height;
+//     this.width = width;
+
+//   }
+//   calcArea(){
+//     return  this.height * this.width;
+//   }
+// }
+
+// class ColoredRectangleWithText extends Rectangle {
+//   constructor(height, width, text, bgColor){
+//     super(height, width);
+//     this.text = text;
+//     this.bgColor = bgColor;
+
+//   }
+
+//   showMyProps(){
+//     console.log(`Текст: ${this.text}, цвет: ${this.bgColor}`)
+//   }
+// }
+
+// const div = new ColoredRectangleWithText(25, 10, 'Hellow Wrold', 'red');
+
+// div.showMyProps()
+
+// // const square = new Rectangle(10, 10);
+// // const long = new Rectangle(20, 100);
+
+// // console.log(square.calcArea());
+// // console.log(long.calcArea());
+
+// //---------------------.rest-`...`-----Оставшиеся элементы------------------------------
+// const log = function (a, b, ...rest) {
+//   console.log(a, b, rest);
+// };
+
+// log("basci", "rest", "opera", "click");
+
+// function calcOrDouble(numb, basis = 2) {
+//   console.log(numb * basis);
+// }
+
+// calcOrDouble(15);
+
+//----------------------------------------------------------------------------------
+//-----------------------------------------Добавляем карточки с тренировками---------------
+
+class TrainCard {
+  constructor(groupMuscle, opisanieUpr, podxodi, povtor, parent) {
+    this.groupMuscle = groupMuscle;
+    this.opisanieUpr = opisanieUpr;
+    this.podxodi = podxodi;
+    this.povtor = povtor;
+    this.parent = document.querySelector(parent);
+    this.vsegoPovtor();
+  }
+  vsegoPovtor() {
+    let a = this.povtor * this.podxodi;
+    return a;
+  }
+  render() {
+    const element1 = document.createElement("div");
+    element1.innerHTML = `<div class='cont'>${this.vsegoPovtor()}${
+      this.groupMuscle
+    } ${this.opisanieUpr} ${this.podxodi} ${this.povtor}</div>`;
+    this.parent.append(element1);
+  }
+}
+
+const jim = new TrainCard(
+  "grudnie",
+  "Жим лежа на плоской скамье",
+  "5",
+  "8",
+  ".container"
+);
+
+const biseps = new TrainCard(
+  "grudnie",
+  "Подъем на бицепс",
+  "5",
+  "8",
+  ".container"
+);
+
+const jimnad = new TrainCard(
+  "grudnie",
+  "Жим из-за головы",
+  "5",
+  "8",
+  ".container"
+);
+
+const triceps = new TrainCard("grudnie", "Брусья", "5", "8", ".container");
+
+const nogi = new TrainCard(
+  "grudnie",
+  "Присед со штангой",
+  "5",
+  "8",
+  ".container"
+);
+
+jim.render();
+nogi.render();
+biseps.render();
+triceps.render();
+jimnad.render();
+
+//--------------------------------------------------------------------------------------
 const initialTab = document.querySelectorAll(".btn");
 const tabsParent = document.querySelector(".buttons");
 const content = document.querySelectorAll(".cont");
@@ -128,14 +313,6 @@ tabsParent.addEventListener("click", (event) => {
 
 // ------------------------------------------------------------------
 
-// let timeNow = function () {
-//   return let a = "dsafas";
-// };
-// timeMSK = setInterval(timeNow, 1000);
-
-// let dateDiv = document.createElement("div");
-// dateDiv.innerHTML = `${timeMSK}`;
-// tabsParent.appendChild(dateDiv);
 document.getElementById("current_date_time_block2").innerHTML = new Date();
 
 setInterval(function () {
@@ -220,4 +397,48 @@ btnCall.addEventListener("click", (event) => {
 
 btnPlsCall.addEventListener("click", () => {
   modalBox.style.display = "block";
+});
+
+//--------------------------Тест this--------------------------------------------
+
+// const btnTest = document.querySelector(".btnTestThis");
+
+// btnTest.addEventListener("click", function () {
+//   this.style.backgroundColor = "red";
+//   console.log(this);
+// });
+
+// const obj = {
+//   num: 5,
+//   sayNumber: function () {
+//     const say = () => {
+//       console.log(this.num);
+//     };
+//     say();
+//   },
+// };
+// obj.sayNumber();
+
+//-------------------------------Обменник---------------------------------------------------
+
+const inputRub = document.querySelector("#rub");
+const inputUsd = document.querySelector("#usd");
+
+inputRub.addEventListener("input", () => {
+  const request = new XMLHttpRequest();
+
+  request.open("GET", "http://localhost:3000/");
+  request.setRequestHeader("Content-type", "application/json; charset=utf-8");
+  request.send();
+
+  request.addEventListener("readystatechange", () => {
+    if (request.readyState === 4 && request.status === 200) {
+      console.log(request.response);
+    }
+  });
+
+  // status
+  // statusText
+  // response
+  // readyState
 });
