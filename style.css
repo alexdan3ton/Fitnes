@@ -2,13 +2,53 @@
   background-color: rgba(0, 0, 0, 0.4);
   border-radius: 10px;
   width: 550px;
-  height: 600px;
-  margin-left: 10px;
+  height: 300px;
+  padding-left: 20px;
+  padding-top: 20px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
 }
+.blockInput {
+  position: absolute;
+  top: 340px;
+  left: 10px;
+}
+
+.appWorkout {
+  margin: 10px 0;
+}
+
+.divEl {
+  display: flex;
+}
+.id {
+  width: 20px;
+  background-color: rgb(156, 156, 132);
+  text-align: center;
+  margin-bottom: 5px;
+  padding: 2px 0 0 0;
+  border-radius: 2px;
+}
+
+.titleEl {
+  width: 250px;
+  background-color: white;
+  margin-bottom: 5px;
+  margin-left: 5px;
+  padding: 2px 5px 2px 5px;
+  border-radius: 2px;
+}
+
 body {
   background-color: #20201f;
 }
 
+.cont {
+  background-color: white;
+  width: 450px;
+  height: 500px;
+}
 .active {
   color: rgb(172, 172, 172);
 }
@@ -34,18 +74,7 @@ body {
 .hide {
   display: none;
 }
-.box {
-  position: absolute;
-  width: 100px;
-  height: 100px;
-  background-color: blue;
-}
-.wrapper {
-  position: relative;
-  width: 400px;
-  height: 400px;
-  border: 3px solid rgb(155, 111, 111);
-}
+
 button {
   margin-bottom: 10px;
   margin-top: 10px;
@@ -94,13 +123,17 @@ button:hover {
   width: 15px;
   background-color: white;
 }
-/* 
+
 .promotion__timer {
+  position: sticky;
+  top: 400px;
+  left: 900px;
   background-color: rgba(0, 0, 0, 0.4);
-  height: 150px;
-  width: 300px;
+
+  height: 100px;
+  width: 435px;
   border: 2px solid black;
-} */
+}
 
 .timer__block {
   width: 90px;
@@ -113,8 +146,8 @@ button:hover {
   overflow: hidden;
   width: auto;
   padding: 5px;
-  background-color: yellow;
-  border: 2px solid green;
+  background-color: rgb(156, 156, 132);
+  border: 2px solid rgb(51, 44, 44);
 }
 
 .forBitch {
@@ -131,77 +164,4 @@ button:hover {
   left: 900px;
   top: 100px;
   position: absolute;
-}
-
-/* Сворачиваемый бокс */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  margin: 10px;
-}
-
-.accordion {
-  transform: translateZ(0);
-  background: white;
-  border-bottom: 1px solid lightgray;
-  border-left: 1px solid lightgray;
-  border-right: 1px solid lightgray;
-}
-
-.accordion > .accordion-toggle {
-  display: none;
-  position: absolute;
-  opacity: 0;
-}
-
-.accordion > label {
-  display: block;
-  position: relative;
-  height: 50px;
-  line-height: 50px;
-  padding: 0 20px;
-  border-top: 1px solid lightgray;
-  border-bottom: 1px solid lightgray;
-  background: #ecebec;
-  color: #555;
-  font-size: 15px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.accordion > label:after {
-  content: "";
-  position: absolute;
-  top: 12px;
-  right: 20px;
-  width: 12px;
-  height: 12px;
-  border-left: 2px solid #555;
-  border-top: 2px solid #555;
-  transform: rotate(-135deg);
-  transition: 0.4s transform;
-}
-
-.accordion > section {
-  overflow: hidden;
-  height: 0;
-  transition: all 0.4s;
-}
-
-.accordion > .accordion-toggle:checked ~ label:after {
-  transform: rotate(45deg);
-  top: 16px;
-}
-
-.accordion > .accordion-toggle:checked ~ section {
-  height: 50px;
-}
-
-.accordion > section p {
-  margin: 15px 0;
-  padding: 0 20px;
 }
