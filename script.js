@@ -278,129 +278,6 @@
 
 // console.log("12-34-56".replace(/-/g, ":"));
 
-//-----------------------------------------Добавляем карточки с тренировками---------------
-
-// class TrainCard {
-//   constructor(groupMuscle, opisanieUpr, podxodi, povtor, parent) {
-//     this.groupMuscle = groupMuscle;
-//     this.opisanieUpr = opisanieUpr;
-//     this.podxodi = podxodi;
-//     this.povtor = povtor;
-//     this.parent = document.querySelector(parent);
-//     // this.vsegoPovtor();
-//   }
-//   // vsegoPovtor() {
-//   //   let a = this.povtor * this.podxodi;
-//   //   return a;
-//   // }
-//   render() {
-//     const element1 = document.createElement("div");
-//     element1.innerHTML = `<div class='cont'> ${this.groupMuscle} ${this.opisanieUpr} ${this.podxodi} ${this.povtor}</div>`;
-//     this.parent.append(element1);
-//   }
-// }
-
-// // const jim = new TrainCard(
-// //   "Грудные",
-// //   <li></li>,
-// //   "5",
-// //   "8",
-// //   ".container"
-// // );
-
-// // const biseps = new TrainCard(
-// //   "grudnie",
-// //   "Подъем на бицепс",
-// //   "5",
-// //   "8",
-// //   ".container"
-// // );
-
-// // const jimnad = new TrainCard(
-// //   "grudnie",
-// //   "Жим из-за головы",
-// //   "5",
-// //   "8",
-// //   ".container"
-// // );
-
-// const triceps = new TrainCard(
-//   "grudnie",
-//   "Брусья",
-//   "5",
-//   "8",
-//   ".container"
-// ).render();
-
-// const nogi = new TrainCard(
-//   "grudnie",
-//   "Присед со штангой",
-//   "5",
-//   "8",
-//   ".container"
-// ).render();
-
-// const getResourses = async (url) => {
-//   const res = await fetch(url);
-
-//   if (!res.ok) {
-//     throw new Error(`Could non fetch ${url} ${res.status} `);
-//   }
-//   return await res.json();
-// };
-
-// getResourses("http://localhost:3000/menu").then((data) => {
-//   data.forEach(({ img, altimg, title, descr, price }) => {
-//     new TrainCard(img, altimg, title, descr, price).render();
-//   });
-// });
-//--------------------------------------------------------------------------------------
-// const initialTab = document.querySelectorAll(".btn");
-// const tabsParent = document.querySelector(".buttons");
-// const content = document.querySelectorAll(".cont");
-
-// function contentDontShow(tab) {
-//   content.forEach((item) => {
-//     item.classList.add("hide");
-//     item.classList.remove("show", "fade");
-
-//     tab.forEach((item) => {
-//       item.classList.remove("active");
-//     });
-//   });
-// }
-
-// function contentShow(tab, i = 0) {
-//   content[i].classList.add("show", "fade");
-//   content[i].classList.remove("hide");
-
-//   tab[i].classList.add("active");
-// }
-// //Добавляем новую кнопку
-// let p = document.createElement("button");
-// p.innerHTML = "Вторник";
-// p.classList.add("btn");
-// tabsParent.appendChild(p);
-
-// contentDontShow(initialTab);
-// contentShow(initialTab);
-
-// tabsParent.addEventListener("click", (event) => {
-//   const tab = tabsParent.querySelectorAll(":scope > .btn");
-//   tab.forEach((item, i) => {
-//     if (event.target === item) {
-//       contentDontShow(tab);
-//       contentShow(tab, i);
-//     }
-//   });
-// });
-
-// document.getElementById("current_date_time_block2").innerHTML = new Date();
-
-// setInterval(function () {
-//   document.getElementById("current_date_time_block2").innerHTML = new Date();
-// }, 1000);
-
 //-----------------До начала лета-----------------------------------
 
 const deadLine = "2023-06-01";
@@ -447,40 +324,6 @@ function setClock(selector, endtime) {
 
 setClock(".timer", deadLine);
 
-// -----------------------------Окно обратной связи-------------------------
-
-//Modal
-
-// const btnClose = document.querySelector(".modal__close");
-// const modalBox = document.querySelector(".modal");
-// const inputInfo = modalBox.querySelectorAll(".modal__input");
-// const btnCall = modalBox.querySelector(".btn_dark");
-// const btnPlsCall = document.querySelector("[data-model]");
-// const modalWindow = document.querySelector(".modal__dialog");
-// const modalContent = document.querySelector(".modal__content");
-
-// //Закрыть модальное окно
-// btnClose.addEventListener("click", () => {
-//   modalBox.style.display = "none";
-// });
-
-// modalBox.addEventListener("click", (event) => {
-//   if (event.target === modalBox) {
-//     modalBox.style.display = "none";
-//   }
-// });
-
-// //Получить данные, по нажатию кнопки
-
-// btnCall.addEventListener("click", (event) => {
-//   event.preventDefault();
-//   // console.log(inputInfo.values);
-// });
-
-// btnPlsCall.addEventListener("click", () => {
-//   modalBox.style.display = "block";
-// });
-
 //--------------------------Тест this--------------------------------------------
 
 // const btnTest = document.querySelector(".btnTestThis");
@@ -501,160 +344,9 @@ setClock(".timer", deadLine);
 // };
 // obj.sayNumber();
 
-//-------------------------------------------------------------------------------------
-// const forms = document.querySelectorAll("form");
-// const parentT = document.querySelector(".tttt");
-// const message = {
-//   loading: "img/form/spinner.svg",
-//   success: "Спасибо! Скоро мы с вами свяжемся",
-//   failure: "Что-то пошло не так...",
-// };
-
-// tekst = document.createElement("div");
-// tekst.innerHTML = message.success;
-
-// forms.forEach((item) => {
-//   BindPostData(item);
-// });
-
-// const postData = async (url, data) => {
-//   const res = await fetch(url, {
-//     method: "POST",
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//     body: data,
-//   });
-//   return await res.json();
-// };
-
-// function BindPostData(form) {
-//   form.addEventListener("submit", (e) => {
-//     e.preventDefault();
-
-//     const formData = new FormData(form);
-
-//     const json = JSON.stringify(Object.fromEntries(formData.entries()));
-
-//     postData("/db.json", json)
-//       .then((data) => {
-//         parentT.appendChild(tekst);
-//         setTimeout(() => {
-//           tekst.remove();
-//         }, 5000);
-//       })
-//       .catch(() => {
-//         console.error("Ошибка соединения");
-//         tekst.innerHTML = "Ошибка соеденения";
-//       })
-//       .finally(() => {
-//         form.reset();
-//       });
-
-//     // try {
-//     //   const response = await fetch("http://localhost:8000/", {
-//     //     method: "POST",
-//     //     headers: {
-//     //       "Content-Type": "application/json",
-//     //     },
-//     //     body: JSON.stringify(object),
-//     //   });
-
-//     //   const data = await response.json();
-
-//     //   if (data.name) {
-//     //     tekst.innerHTML = "Авторизация пройдена";
-//     //   } else {
-//     //     tekst.innerHTML = data.error;
-//     //   }
-
-//     //   parentT.appendChild(tekst);
-//     //   setTimeout(() => {
-//     //     tekst.remove();
-//     //   }, 2000);
-//     // } catch (e) {
-//     //   console.log("Error", e);
-//     //   parentT.appendChild(tekst);
-//     // }
-
-//     // form.reset();
-//   });
-// }
-
-// -----------------------Калькулятор коллорий---------------------------
-
-// const result = document.querySelector(".calculating__result span");
-// let sex, height, weight, age, ratio;
-
-// function calcTotal() {
-//   if (!height || !weight || !age || !ratio) {
-//     result.textContent = "_____";
-//     return;
-//   }
-//   if (sex === "female") {
-//     result.textContent =
-//       (447.6 + 9.2 * weight + 3.1 * height - 4.3 * age) * ratio;
-//   } else {
-//     result.textContent =
-//       (88.36 + 13.4 * weight + 4.8 * height - 5.7 * age) * ratio;
-//   }
-// }
-
-// calcTotal();
-
-// function getStaticInformation(parentSelector, activeClass) {
-//   const elements = document.querySelectorAll(`${parentSelector} div`);
-
-//   document.querySelector(parentSelector).addEventListener("click", (e) => {
-//     if (e.target.getAttribute("data-ratio")) {
-//       ratio = +e.target.getAttribute("data-ratio");
-//     } else {
-//       sex = e.target.getAttribute("id");
-//     }
-
-//     console.log(ratio, sex);
-
-//     elements.forEach((elem) => {
-//       elem.classList.remove(activeClass);
-//     });
-
-//     e.target.classList.add(activeClass);
-//     calcTotal();
-//   });
-// }
-
-// getStaticInformation("#gender", "calculating__choose-item_active");
-// getStaticInformation(
-//   ".calculating__choose_big",
-//   "calculating__choose-item_active"
-// );
-
-// function getDynamicInformation(selector) {
-//   const input = document.querySelector(selector);
-
-//   input.addEventListener("input", () => {
-//     switch (input.getAttribute("id")) {
-//       case "height":
-//         height = +input.value;
-//         break;
-//       case "weight":
-//         weight = +input.value;
-//         break;
-//       case "age":
-//         age = +input.value;
-//         break;
-//     }
-//     calcTotal();
-//   });
-// }
-
-// getDynamicInformation("#height");
-// getDynamicInformation("#weight");
-// getDynamicInformation("#age");
-
 //------------------------------------------------------------------------------------------
 //Получение списка тренировок
-
+let idIzenaemogoTitle;
 async function getUsers() {
   const respons = await fetch("http://localhost:8000/wokrout", {
     method: "GET",
@@ -663,25 +355,51 @@ async function getUsers() {
   if (respons.ok === true) {
     const workout = await respons.json();
     let row = document.querySelector(".mainCont");
-    row.replaceChildren();
-
-    workout.forEach((item) => {
+    // row.replaceChildren();
+    workout.forEach((item, i) => {
       const divEl = document.createElement("div");
       const idEl = document.createElement("div");
       const titleEl = document.createElement("div");
+      const btnDel = document.createElement("button");
+      const butPut = document.createElement("button");
+
+      btnDel.classList.add("button");
       divEl.classList.add("divEl");
       idEl.classList.add("id");
       titleEl.classList.add("titleEl");
-      idEl.innerHTML = item.id;
+      butPut.classList.add("button");
+
+      idEl.innerHTML = i + 1;
       titleEl.innerHTML = item.title;
       divEl.appendChild(idEl);
       divEl.appendChild(titleEl);
-
+      divEl.appendChild(butPut);
+      divEl.appendChild(btnDel);
       row.appendChild(divEl);
+
+      butPut.innerHTML = "Изменить";
+      btnDel.innerHTML = "Удалить";
+
+      butPut.addEventListener("click", () => {
+        document.getElementById("putWorkTitle").value = item.title;
+        idIzenaemogoTitle = item.id;
+      });
+
+      btnDel.addEventListener("click", (e) => {
+        e.preventDefault();
+        deleteWorkout(item.id);
+      });
     });
   }
 }
 getUsers();
+
+// btnDel.addEventListener("click", (e) => {
+//   const id = item.id;
+//   const title = document.getElementById("putWorkTitle").value;
+//   putWorkout(id, title);
+// });
+
 //Добавление тренировки
 const forms = document.getElementById("form");
 
@@ -712,12 +430,9 @@ const formsEdit = document.getElementById("formElem");
 
 formsEdit.addEventListener("submit", (e) => {
   e.preventDefault();
-
   const formData = new FormData(formsEdit);
-
-  const id = formData.get("id");
+  const id = idIzenaemogoTitle;
   const title = formData.get("title");
-
   putWorkout(id, title);
 });
 async function putWorkout(id, title) {
@@ -728,5 +443,12 @@ async function putWorkout(id, title) {
       id: id,
       title: title,
     }),
+  });
+}
+//Удаление тренировки
+async function deleteWorkout(id) {
+  const respons = await fetch("http://localhost:8000/wokrout/" + id, {
+    method: "DELETE",
+    headers: { "Content-Type": "application/json" },
   });
 }

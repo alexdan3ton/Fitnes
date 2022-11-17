@@ -11,8 +11,9 @@
 }
 .blockInput {
   position: absolute;
-  top: 340px;
-  left: 10px;
+
+  top: 10px;
+  left: 560px;
 }
 
 .appWorkout {
@@ -24,7 +25,7 @@
 }
 .id {
   width: 20px;
-  background-color: rgb(156, 156, 132);
+  background-color: #9c9c84;
   text-align: center;
   margin-bottom: 5px;
   padding: 2px 0 0 0;
@@ -32,14 +33,38 @@
 }
 
 .titleEl {
-  width: 250px;
+  word-wrap: break-word;
+  width: 350px;
   background-color: white;
   margin-bottom: 5px;
   margin-left: 5px;
   padding: 2px 5px 2px 5px;
   border-radius: 2px;
 }
-
+#putWorkTitle {
+  width: 300px;
+  height: 200px;
+  position: absolute;
+  top: 35px;
+  left: 450px;
+}
+#putWorkId {
+  width: 298px;
+  position: absolute;
+  top: 10px;
+  left: 450px;
+}
+#btnPut {
+  position: absolute;
+  left: 450px;
+  top: 245px;
+  width: 307px;
+}
+*:disabled {
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  opacity: 1;
+}
 body {
   background-color: #20201f;
 }
@@ -76,23 +101,16 @@ body {
 }
 
 button {
-  margin-bottom: 10px;
-  margin-top: 10px;
-  width: 100px;
-  height: 40px;
-  background-color: #2c2c2c;
+  margin-left: 5px;
+  margin-bottom: 5px;
+  padding: 2px 5px 2px 5px;
+  background-color: white;
+  border-radius: 2px;
   border: none;
-  color: white;
-  border-radius: 9px;
-  margin-left: 10px;
 }
 
 button:hover {
-  margin-bottom: 10px;
-  margin-top: 10px;
-  width: 100px;
-  height: 40px;
-  background-color: #424242;
+  background-color: #9c9c84;
   border: none;
   box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
     0 17px 50px 0 rgba(0, 0, 0, 0.19);
@@ -125,9 +143,9 @@ button:hover {
 }
 
 .promotion__timer {
-  position: sticky;
-  top: 400px;
-  left: 900px;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
   background-color: rgba(0, 0, 0, 0.4);
 
   height: 100px;
